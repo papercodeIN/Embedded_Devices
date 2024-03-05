@@ -1,0 +1,8 @@
+- MicroPython Library: micropython-modbus
+- Installed version: 2.3.4
+- Installed to: /lib
+- Latest stable version: 2.3.4
+- Summary: MicroPython ModBus TCP and RTU library supporting client and host mode
+- Author: brainelectronics
+- Homepage: https://github.com/brainelectronics/micropython-modbus
+- PyPI page: https://pypi.org/project/micropython-modbus/

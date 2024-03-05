@@ -1,0 +1,9 @@
+{
+'ISTS': {'EXAMPLE_ISTS': {'val': 0, 'register': 1, 'len': 1}},
+'IREGS': {'EXAMPLE_IREG1': {'val': 0, 'register': 1, 'len': 1},
+          'EXAMPLE_IREG2': {'val': 0, 'register': 2, 'len': 1}},
+'HREGS': {'EXAMPLE_HREG2': {'val': 0, 'register': 1, 'len': 1},
+          'EXAMPLE_HREG1': {'val': 0, 'register': 2, 'len': 1}},
+'COILS': {'EXAMPLE_COIL1': {'val': 0, 'register': 1, 'len': 1},
+          'EXAMPLE_COIL2': {'val': 0, 'register': 2, 'len': 1}}
+}
