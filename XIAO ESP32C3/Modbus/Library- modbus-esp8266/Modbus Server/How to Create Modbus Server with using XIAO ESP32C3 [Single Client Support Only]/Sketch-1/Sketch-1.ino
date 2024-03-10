@@ -10,7 +10,7 @@ void setup() {
   Serial.begin(115200);
 
   // Set fixed IP address, subnet mask, and gateway
-  IPAddress ip(192, 168, 1, 4);
+  IPAddress ip(192, 168, 1, 5);
   IPAddress subnet(255, 255, 255, 0);
   IPAddress gateway(192, 168, 1, 1);
 

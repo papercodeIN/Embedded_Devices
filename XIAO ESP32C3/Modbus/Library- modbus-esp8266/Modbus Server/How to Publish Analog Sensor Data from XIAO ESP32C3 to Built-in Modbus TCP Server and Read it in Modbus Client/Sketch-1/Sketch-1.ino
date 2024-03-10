@@ -24,9 +24,10 @@ void loop() {
   mb.task();
 
   int sensorValue = analogRead(A0);
-  // int mappedValue = map(sensorValue, 0, 4095, 0, 100); // Map sensorValue from 0 to 4095 to 0 to 100
+  int mappedValue = map(sensorValue, 0, 4095, 0, 100); // Map sensorValue from 0 to 4095 to 0 to 100
   
-  mb.Hreg(ANALOG_REGISTER_ADDRESS, sensorValue);
+  // mb.Hreg(ANALOG_REGISTER_ADDRESS, sensorValue);
+  mb.Hreg(ANALOG_REGISTER_ADDRESS, mappedValue);
 
   // Serial.print("Analog Value: ");
   // Serial.println(mappedValue);

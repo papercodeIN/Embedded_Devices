@@ -7,7 +7,7 @@ const char* password = "MN704116";
 IPAddress remote(192, 168, 1, 7);  // Address of Modbus Slave device
 const int START_COIL = 0;           // Starting coil address
 const int NUM_COILS = 10;           // Number of coils to read
-const int INTERVAL = 5000;          // Interval between reads (in milliseconds)
+const int INTERVAL = 1000;          // Interval between reads (in milliseconds)
 
 WiFiClient client;
 ModbusIP mb;

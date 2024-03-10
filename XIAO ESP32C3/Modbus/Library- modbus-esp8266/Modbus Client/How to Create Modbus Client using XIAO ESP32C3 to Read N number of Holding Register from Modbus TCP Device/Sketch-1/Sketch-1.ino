@@ -7,7 +7,7 @@ const char* password = "MN704116";
 IPAddress remote(192, 168, 1, 7);  // Address of Modbus Slave device
 const int START_REG = 0;           // Starting holding register
 const int NUM_REGS = 10;           // Number of holding registers to read
-const int INTERVAL = 5000;         // Interval between reads (in milliseconds)
+const int INTERVAL = 1000;         // Interval between reads (in milliseconds)
 
 WiFiClient client;
 ModbusIP mb;

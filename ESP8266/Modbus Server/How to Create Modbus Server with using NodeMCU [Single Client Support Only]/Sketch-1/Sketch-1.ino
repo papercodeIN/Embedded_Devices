@@ -1,4 +1,4 @@
-#include <WiFi.h>
+#include <ESP8266WiFi.h>
 #include <ModbusIP_ESP8266.h>
 
 const char* ssid = "Capgemini_4G";
