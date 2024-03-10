@@ -1,7 +1,7 @@
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
 #include <ModbusIP_ESP8266.h>
 
-#define DIGITAL_REGISTER_ADDRESS 10
+#define DIGITAL_REGISTER_ADDRESS 0
 
 ModbusIP mb;
 
@@ -16,10 +16,10 @@ void setup() {
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
-  mb.server(4996);
+  mb.server();
   mb.addCoil(DIGITAL_REGISTER_ADDRESS, false); // Initialize the coil with false (off)
   
-  pinMode(LED_BUILTIN, OUTPUT); // Set LED_BUILTIN pin as output
+  pinMode(D6, OUTPUT); // Set LED_BUILTIN pin as output
 }
 
 void loop() {
@@ -28,11 +28,8 @@ void loop() {
   // Read the value from Modbus register to control the LED
   bool ledStatus = mb.Coil(DIGITAL_REGISTER_ADDRESS);
 
-  // Invert the LED status
-  ledStatus = !ledStatus;
-
   // Control the LED based on inverted Modbus register value
-  digitalWrite(LED_BUILTIN, ledStatus ? HIGH : LOW);
+  digitalWrite(D6, ledStatus ? HIGH : LOW);
 
   delay(500);
 }
