@@ -1,0 +1,20 @@
+{
+    "mqtt": {
+        "broker": "192.168.1.23",
+        "port": 1883
+    },
+    "modbus": {
+        "tcp_ip": "192.168.1.23",
+        "tcp_port": 502,
+        "device_id": 1
+    },
+    "holding_registers": [
+        {"start": 1, "length": 3},
+        {"start": 7, "length": 2}
+    ],
+    "input_registers": [
+        {"start": 2, "length": 3},
+        {"start": 7, "length": 3}
+    ]
+}
+

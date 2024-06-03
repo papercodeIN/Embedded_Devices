@@ -1,0 +1,39 @@
+{
+    "modbus": {
+      "ip": "192.168.1.23",
+      "port": 502,
+      "slaveID": 1,
+      "registers": [
+        {
+          "type": "holding",
+          "startAddress": 0,
+          "endAddress": 2,
+          "tags": ["HRTag0", "HRTag1", "HRTag2"]
+        },
+        {
+          "type": "holding",
+          "startAddress": 5,
+          "endAddress": 7,
+          "tags": ["HRTag5", "HRTag6", "HRTag7"]
+        },
+        {
+          "type": "input",
+          "startAddress": 0,
+          "endAddress": 2,
+          "tags": ["IRTag0", "IRTag1", "IRTag2"]
+        }
+      ]
+    },
+    "mqtt": {
+      "broker": {
+        "ip": "192.168.1.23",
+        "port": 1883,
+        "username": "",
+        "password": ""
+      },
+      "baseTopic": "modbus/data",
+      "reconnectInterval": 5000
+    }
+  }
+  
+  
