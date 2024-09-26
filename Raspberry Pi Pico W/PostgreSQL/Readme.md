@@ -32,8 +32,6 @@ This project can also be adapted to work with **ESP32** and **ESP8266** microcon
 This project serves as a practical example of **IoT (Internet of Things)** data logging, showcasing how microcontrollers can be integrated with cloud-based databases for real-time data monitoring and analysis. It can be further expanded with features such as data visualization, alerting systems, or additional sensors for comprehensive environmental monitoring.
 
 ## Create Table Query if Table do not Exists
-```CREATE TABLE IF NOT EXISTS sensor_data (
-        id SERIAL PRIMARY KEY,
-        temperature FLOAT NOT NULL,
-        recorded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )```
+```
+CREATE TABLE IF NOT EXISTS sensor_data ( id SERIAL PRIMARY KEY, temperature FLOAT NOT NULL, recorded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP )
+```
