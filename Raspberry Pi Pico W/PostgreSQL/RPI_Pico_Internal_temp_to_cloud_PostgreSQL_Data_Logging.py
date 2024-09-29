@@ -23,7 +23,7 @@ print("Wi-Fi connected:", wlan.ifconfig())
 print("Connecting to PostgreSQL database...")
 try:
     conn = micropg_lite.connect(
-        host='3.87.44.34',  # Replace with your server IP address
+        host='52.90.199.127',  # Replace with your server IP address
         user='myuser',  # Replace with your username
         password='mypassword',  # Replace with your password
         database='mydatabase'
@@ -51,6 +51,9 @@ def read_internal_temperature():
 # Loop to insert temperature data every 10 seconds
 try:
     while True:
+        # Record the start time of the loop
+        start_time = time.time()
+        
         # Read internal temperature
         temperature = read_internal_temperature()
         
@@ -64,8 +67,13 @@ try:
         except Exception as e:
             print("Error inserting data:", e)
 
-        # Wait for 10 seconds before the next reading
-        time.sleep(10)
+        # Calculate how long the operations took
+        elapsed_time = time.time() - start_time
+
+        # Sleep for the remaining time to ensure the loop runs every 10 seconds
+        sleep_time = 10 - elapsed_time
+        if sleep_time > 0:
+            time.sleep(sleep_time)
 
 except KeyboardInterrupt:
     print("Program stopped by user.")
