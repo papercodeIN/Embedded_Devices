@@ -1,79 +1,76 @@
-#include <sMQTTBroker.h>
+#include <ESP8266WiFi.h>
+#include <MySQL_Connection.h>
+#include <MySQL_Cursor.h>
+#include <DHT.h>
 
-// Define MQTT client username and password
-const char* MQTT_CLIENT_USER = "admin"; // Username for MQTT clients. Set your own value here.
-const char* MQTT_CLIENT_PASSWORD = "password"; // Password for MQTT clients. Set your own value here.
+#define DHTPIN D4          // Pin where the data line of DHT sensor is connected
+#define DHTTYPE DHT11      // DHT11 or DHT22 sensor
 
-// Create a custom class inheriting from sMQTTBroker
-class MyBroker : public sMQTTBroker {
-public:
-    // Override the onEvent function to handle different MQTT events
-    bool onEvent(sMQTTEvent *event) override {
-        switch(event->Type()) {
-            case NewClient_sMQTTEventType: {
-                // Handle new client connection event
-                sMQTTNewClientEvent *e = (sMQTTNewClientEvent*)event;
+DHT dht(DHTPIN, DHTTYPE);
 
-                // Check if the provided username and password are correct
-                if ((e->Login() != MQTT_CLIENT_USER) || (e->Password() != MQTT_CLIENT_PASSWORD)) {
-                    Serial.println("Invalid username or password");
-                    return false; // Deny connection if credentials are incorrect
-                }
-            };
-            break;
+char ssid[] = "your-ssid";         // your WiFi SSID
+char pass[] = "your-password";     // your WiFi password
 
-            case LostConnect_sMQTTEventType:
-                // Handle lost connection event, attempt to reconnect Wi-Fi
-                WiFi.reconnect();
-                break;
+WiFiClient client;                 // WiFi client for the MySQL connection
+MySQL_Connection conn(&client);
+MySQL_Cursor* cursor;
 
-            case UnSubscribe_sMQTTEventType:
-            case Subscribe_sMQTTEventType: {
-                // Handle subscribe/unsubscribe events
-                sMQTTSubUnSubClientEvent *e = (sMQTTSubUnSubClientEvent*)event;
-                // You can add additional code here to handle these events if needed
-            }
-            break;
-        }
-        return true; // Return true to allow the event to be processed normally
-    }
-};
-
-// Instantiate the broker object
-MyBroker broker;
+// MySQL server login credentials and database info
+char user[] = "root";              // MySQL username
+char password[] = "secret";        // MySQL password
+char INSERT_SQL[] = "INSERT INTO test_arduino.hello_sensor (message, sensor_num, value, humidity) VALUES ('Sensor Data', %d, %s, %s)";
+char query[128];
+char temperature[10];
+char humidity[10];
 
 void setup() {
-    Serial.begin(115200);
+  Serial.begin(115200);
+  dht.begin();                     // Initialize DHT sensor
 
-    // Define static IP address, gateway, subnet mask, and DNS server for the ESP32 in AP mode
-    IPAddress local_IP(192, 168, 4, 1);  // Replace with your desired IP address
-    IPAddress gateway(192, 168, 4, 1);   // Replace with your desired gateway
-    IPAddress subnet(255, 255, 255, 0);  // Replace with your desired subnet mask
-    IPAddress primaryDNS(8, 8, 8, 8);    // Optional: replace with your desired primary DNS
-    IPAddress secondaryDNS(8, 8, 4, 4);  // Optional: replace with your desired secondary DNS
+  // Begin WiFi connection
+  Serial.printf("Connecting to %s", ssid);
+  WiFi.begin(ssid, pass);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nConnected to WiFi!");
+  Serial.print("My IP address is: ");
+  Serial.println(WiFi.localIP());
 
-    // Configure the ESP32 AP with the specified IP details
-    if (!WiFi.softAPConfig(local_IP, gateway, subnet)) {
-        Serial.println("AP Config failed.");
-    }
-
-    // Set up Wi-Fi in Access Point mode
-    WiFi.softAP("MQTT_Broker_AP", "12345678");  // Replace with your SSID and password
-
-    // Display the IP address of the ESP32
-    Serial.print("AP IP address: ");
-    Serial.println(WiFi.softAPIP());
-
-    // Initialize the MQTT broker on port 1883
-    const unsigned short mqttPort = 1883;
-    broker.init(mqttPort);
-
-    // Additional setup code can be added here
+  // Connect to MySQL server
+  Serial.print("Connecting to SQL... ");
+  if (conn.connect("your-server-address", 3306, user, password)) {
+    Serial.println("Connected to MySQL.");
+  } else {
+    Serial.println("MySQL connection failed.");
+  }
 }
 
 void loop() {
-    // Update the broker to process incoming and outgoing MQTT messages
-    broker.update();
+  float t = dht.readTemperature();  // Reading temperature
+  float h = dht.readHumidity();     // Reading humidity
 
-    // Additional loop code can be added here
+  // Check if readings are valid
+  if (isnan(t) || isnan(h)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+
+  // Convert readings to string format for SQL query
+  dtostrf(t, 1, 2, temperature);
+  dtostrf(h, 1, 2, humidity);
+  sprintf(query, INSERT_SQL, 1, temperature, humidity);  // 1 is a placeholder for sensor number
+
+  // Insert data into MySQL
+  if (conn.connected()) {
+    MySQL_Cursor *cur_mem = new MySQL_Cursor(&conn);
+    cur_mem->execute(query);
+    delete cur_mem;  // Clean up
+    Serial.println("Data recorded.");
+  } else {
+    Serial.println("Failed to connect to MySQL.");
+  }
+
+  delay(5000);  // Wait for 5 seconds before reading data again
 }
