@@ -1,0 +1,316 @@
+[
+    {
+        "id": "552ec3c09d04ad4b",
+        "type": "tab",
+        "label": "RYLR998 - 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "926eb1d01164723b",
+        "type": "debug",
+        "z": "552ec3c09d04ad4b",
+        "name": "RYLR998 Response Out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 450,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a54c48691971024c",
+        "type": "serial in",
+        "z": "552ec3c09d04ad4b",
+        "name": "Response from RYLR998 - 2",
+        "serial": "d116ec390b446e2b",
+        "x": 200,
+        "y": 60,
+        "wires": [
+            [
+                "926eb1d01164723b"
+            ]
+        ]
+    },
+    {
+        "id": "cc0fc00e6a98772e",
+        "type": "serial out",
+        "z": "552ec3c09d04ad4b",
+        "name": "Send Commands to RYLR998 - 2 Board",
+        "serial": "d116ec390b446e2b",
+        "x": 640,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "03b4efbb326c46b6",
+        "type": "inject",
+        "z": "552ec3c09d04ad4b",
+        "name": "Check RYLR998 - 2 Module",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AT",
+        "payloadType": "str",
+        "x": 220,
+        "y": 140,
+        "wires": [
+            [
+                "65f56c26a06deddd"
+            ]
+        ]
+    },
+    {
+        "id": "1908b4ea1eff74e1",
+        "type": "inject",
+        "z": "552ec3c09d04ad4b",
+        "name": "Get RYLR998 - 2 Address",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AT+ADDRESS?",
+        "payloadType": "str",
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "65f56c26a06deddd"
+            ]
+        ]
+    },
+    {
+        "id": "ef79b3b12e2c5005",
+        "type": "inject",
+        "z": "552ec3c09d04ad4b",
+        "name": "Get RYLR998 - 2 NetworkID",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AT+NETWORKID?",
+        "payloadType": "str",
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "65f56c26a06deddd"
+            ]
+        ]
+    },
+    {
+        "id": "6b996bc48a138558",
+        "type": "inject",
+        "z": "552ec3c09d04ad4b",
+        "name": "Get RYLR998 - 2 Band",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AT+BAND?",
+        "payloadType": "str",
+        "x": 240,
+        "y": 260,
+        "wires": [
+            [
+                "65f56c26a06deddd"
+            ]
+        ]
+    },
+    {
+        "id": "9b1a505eb6514218",
+        "type": "inject",
+        "z": "552ec3c09d04ad4b",
+        "name": "Check RYLR998 - 2 Last Payload",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AT+SEND?",
+        "payloadType": "str",
+        "x": 210,
+        "y": 300,
+        "wires": [
+            [
+                "65f56c26a06deddd"
+            ]
+        ]
+    },
+    {
+        "id": "28c42823808cd326",
+        "type": "inject",
+        "z": "552ec3c09d04ad4b",
+        "name": "Set RYLR998 - 1 Address to 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AT+ADDRESS=2",
+        "payloadType": "str",
+        "x": 220,
+        "y": 420,
+        "wires": [
+            [
+                "65f56c26a06deddd"
+            ]
+        ]
+    },
+    {
+        "id": "651efd0b3e774b55",
+        "type": "inject",
+        "z": "552ec3c09d04ad4b",
+        "name": "Set RYLR998 - 1 NetworkID",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AT+NETWORKID=5",
+        "payloadType": "str",
+        "x": 220,
+        "y": 460,
+        "wires": [
+            [
+                "65f56c26a06deddd"
+            ]
+        ]
+    },
+    {
+        "id": "d8b3ebd18757c92b",
+        "type": "inject",
+        "z": "552ec3c09d04ad4b",
+        "name": "Set RYLR998 - 1 Band",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AT+BAND=915000000",
+        "payloadType": "str",
+        "x": 240,
+        "y": 380,
+        "wires": [
+            [
+                "65f56c26a06deddd"
+            ]
+        ]
+    },
+    {
+        "id": "65f56c26a06deddd",
+        "type": "function",
+        "z": "552ec3c09d04ad4b",
+        "name": "Function",
+        "func": "msg.payload += Buffer.from(\"0D0A\", \"hex\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 240,
+        "wires": [
+            [
+                "cc0fc00e6a98772e"
+            ]
+        ]
+    },
+    {
+        "id": "a389b5b780af5ea1",
+        "type": "inject",
+        "z": "552ec3c09d04ad4b",
+        "name": "Send Payload to 2 from 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AT+SEND=1,8,AUTOMATE",
+        "payloadType": "str",
+        "x": 230,
+        "y": 540,
+        "wires": [
+            [
+                "65f56c26a06deddd"
+            ]
+        ]
+    },
+    {
+        "id": "d116ec390b446e2b",
+        "type": "serial-port",
+        "name": "RYLR998 - 2",
+        "serialport": "COM8",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    }
+]
