@@ -3,7 +3,7 @@
 
 // Create ADS1115 instances for two devices
 Adafruit_ADS1115 ads1;  // First ADS1115 device at address 0x48
-Adafruit_ADS1115 ads2;  // Second ADS1115 device at address 0x49
+// Adafruit_ADS1115 ads2;  // Second ADS1115 device at address 0x49
 
 void setup() { 
    Serial.begin(9600); 
@@ -14,11 +14,11 @@ void setup() {
 
    // Start ADS1115 devices with their respective I2C addresses
    ads1.begin(0x48);  // Initialize ADS1115 at address 0x48
-   ads2.begin(0x49);  // Initialize ADS1115 at address 0x49
+   // ads2.begin(0x49);  // Initialize ADS1115 at address 0x49
 
    // Set gain for both ADS1115 devices to GAIN_ONE (±4.096V range)
    ads1.setGain(GAIN_ONE); 
-   ads2.setGain(GAIN_ONE); 
+   // ads2.setGain(GAIN_ONE); 
 }
 
 void loop() { 
