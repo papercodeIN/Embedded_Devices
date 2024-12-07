@@ -1,5 +1,11 @@
 #define INPUT1 27  // Define a constant INPUT1 and set it to pin 27
 
+// #define INPUT2 34
+// #define INPUT3 35
+// #define INPUT4 14
+// #define INPUT5 13
+// #define INPUT6 21
+
 void setup() { 
    Serial.begin(9600);  // Initialize serial communication at a baud rate of 9600
    Serial.println("Device Starting");  // Print a message to indicate the device is starting
