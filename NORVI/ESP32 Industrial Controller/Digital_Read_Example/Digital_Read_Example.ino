@@ -10,9 +10,9 @@ void loop() {
    int inputState = digitalRead(INPUT1);  // Read the digital state of pin 27
    
    if (inputState == HIGH) {  // Check if the input is high
-       Serial.println("0");  // Print "0" for high state
+       Serial.println("1");  // Print "1" for high state
    } else { 
-       Serial.println("1");  // Print "1" for low state
+       Serial.println("0");  // Print "0" for low state
    }
    
    delay(500);  // Wait for 500 milliseconds before the next reading
