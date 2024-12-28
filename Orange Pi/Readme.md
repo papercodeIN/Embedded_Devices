@@ -1,3 +1,4 @@
+```
 root@orangepizero3:~# gpio readall
  +------+-----+----------+--------+---+   H616   +---+--------+----------+-----+------+
  | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |
@@ -22,3 +23,4 @@ root@orangepizero3:~# gpio readall
  +------+-----+----------+--------+---+----++----+---+--------+----------+-----+------+
  | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |
  +------+-----+----------+--------+---+   H616   +---+--------+----------+-----+------+
+```
