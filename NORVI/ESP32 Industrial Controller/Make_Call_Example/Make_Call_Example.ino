@@ -19,7 +19,7 @@ void setup() {
   sendATCommand("AT+CPIN?", 5000);
 
   // Make a call to a specified number
-  makeCall("+917284867759");  // Replace with the number you want to call
+  makeCall("+91XXXXXXXXXX");  // Replace with the number you want to call
 
   Serial.println("GSM Call Test Done");
 }
