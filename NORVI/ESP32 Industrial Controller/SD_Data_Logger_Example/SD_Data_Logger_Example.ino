@@ -8,10 +8,13 @@
 #define SD_CS 15
 
 // Create an RTC_DS3231 object to interface with the RTC module
-RTC_DS3231 rtc; 
+RTC_DS3231 rtc;
 
 // Array of day names for displaying the day of the week
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+// Global variable to store the current file name
+String currentFileName;
 
 // ================================================ SETUP ================================================
 void setup() {
@@ -20,7 +23,7 @@ void setup() {
   Serial.println("System Initialized");
 
   // Initialize the I2C communication for the RTC module (using pins 16 for SDA and 17 for SCL)
-  Wire.begin(16, 17); 
+  Wire.begin(16, 17);
 
   // Initialize the SD card interface
   pinMode(SD_CS, OUTPUT);
@@ -37,8 +40,11 @@ void setup() {
   RTC_Check();
   delay(1000);
 
-  // If the CSV file doesn't exist yet, create it and write headers
-  File dataFile = SD.open("/log.csv", FILE_WRITE);
+  // Generate the file name based on the current date
+  updateFileName();
+
+  // If the file doesn't exist yet, create it and write headers
+  File dataFile = SD.open(currentFileName.c_str(), FILE_WRITE);
   if (dataFile) {
     // Write CSV header with column names: Timestamp and Random Value
     dataFile.println("Timestamp,Random Value");
@@ -61,7 +67,7 @@ void loop() {
 // Function to log data to the SD card with a timestamp
 void logData(int randomValue) {
   // Open the CSV file for appending (write to the end of the file)
-  File dataFile = SD.open("/log.csv", FILE_APPEND);
+  File dataFile = SD.open(currentFileName.c_str(), FILE_APPEND);
 
   if (dataFile) {
     // Get the current date and time from the RTC
@@ -91,18 +97,17 @@ void logData(int randomValue) {
     Serial.println(randomValue);
   } else {
     // If there was an error opening the file, print an error message
-    Serial.println("Error opening log.csv");
+    Serial.println("Error opening file: " + currentFileName);
   }
 }
 
 // Function to check the RTC status and set the time if necessary
-void RTC_Check(){
+void RTC_Check() {
   // Initialize the RTC module
   if (! rtc.begin()) {
     // If the RTC is not found, print an error message
     Serial.println("Couldn't find RTC");
-  }
-  else {
+  } else {
     // If the RTC has lost power, adjust the time to the compile-time of the sketch
     if (rtc.lostPower()) {
       Serial.println("RTC lost power, lets set the time!");
@@ -110,4 +115,18 @@ void RTC_Check(){
       rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));  
     }
   }
+}
+
+// Function to generate the file name based on the current date
+void updateFileName() {
+  // Get the current date from the RTC
+  DateTime now = rtc.now();
+
+  // Format the file name as "YYYY-MM-DD.csv"
+  currentFileName = "/" + String(now.year()) + "-" + 
+                    String(now.month()) + "-" + 
+                    String(now.day()) + ".csv";
+
+  // Print the generated file name to the Serial Monitor for debugging
+  Serial.println("Generated file name: " + currentFileName);
 }
