@@ -46,7 +46,7 @@ send_at_command(uart1, 'AT+WMODE=3,1')
 Uart1_receive()
 
 # Send an AT command to connect the module to a Wi-Fi network
-wifi_ssid = "Capgemini_4G"
+wifi_ssid = "Capgemini_5G"
 wifi_password = "MN704116"
 print(f"Connecting to Wi-Fi network: {wifi_ssid}...")
 send_at_command(uart1, f'AT+WJAP={wifi_ssid},{wifi_password}')
