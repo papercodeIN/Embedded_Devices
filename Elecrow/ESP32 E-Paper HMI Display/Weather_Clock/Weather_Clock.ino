@@ -14,19 +14,19 @@
 //Define a black and white image array as a buffer for electronic paper display
 uint8_t ImageBW[15000];  //Define the buffer size based on the resolution of the electronic paper display screen
 
-const char* ssid = "SSID";       // WiFi network name
-const char* password = "PASSWORD";     // WiFi password
+const char* ssid = "Capgemini_4G";       // WiFi network name
+const char* password = "MN704116";     // WiFi password
 
 unsigned long lastUpdateTime = 0;  // The timestamp of the last update time
 unsigned long lastAnalysisTime = 0;  // Last analysis timestamp
 //****************************************************************************************
 //OpenWeatherMap API Key
-String openWeatherMapApiKey = "";
+String openWeatherMapApiKey = "4bc349303c24176cb1173d1ed4cb7837";
 //Example API Key: String openWeatherMapApiKey = "bd939aa3d23ff33d3c8f5dd1dd435";
 
 // Replace with actual city and country codes
-String city = "";                    // City Name
-String countryCode = "";            // The country code of the city
+String city = "Surat";                    // City Name
+String countryCode = "1255364";            // The country code of the city
 
 // Define variables related to JSON data
 String jsonBuffer;
