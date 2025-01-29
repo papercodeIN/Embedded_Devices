@@ -1,44 +1,28 @@
 #!/bin/bash
 
-# Install Node-RED
-# curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-# sudo apt-get install -y nodejs
-# sudo apt-get install npm
-# sudo npm install -g --unsafe-perm node-red
-# node-red
+# Check current system date and time
+echo "Checking current system date and time..."
+date
 
-# Function to check and correct system date and time
-check_and_correct_time() {
-  echo "Checking current system date and time..."
-  date
+# Synchronize system time with NTP
+echo "Synchronizing system time with NTP..."
+sudo timedatectl set-ntp true
+sudo systemctl restart systemd-timesyncd
 
-  echo "Synchronizing system time with NTP..."
-  sudo timedatectl set-ntp true
-  sudo systemctl restart systemd-timesyncd
+# Install ntpdate for time synchronization
+echo "Installing ntpdate for time synchronization..."
+sudo apt-get install -y ntpdate
 
-  echo "Installing ntpdate for time synchronization..."
-  sudo apt-get install -y ntpdate
+# Sync time with pool.ntp.org
+echo "Syncing time with pool.ntp.org..."
+sudo ntpdate pool.ntp.org
 
-  echo "Syncing time with pool.ntp.org..."
-  sudo ntpdate pool.ntp.org
-
-  echo "Updated system date and time:"
-  date
-}
-
-# Function to install Node-RED
-install_node_red() {
-  echo "Installing Node-RED..."
-  bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
-}
-
-# Main script execution
-echo "Starting setup..."
-
-# Check and correct time
-check_and_correct_time
+# Display updated system date and time
+echo "Updated system date and time:"
+date
 
 # Install Node-RED
-install_node_red
+echo "Installing Node-RED..."
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 
 echo "Setup completed! Node-RED is ready to use."
