@@ -1,6 +1,6 @@
 ## **Environment Details**
 - **Ubuntu Machine**
-  - **Login:** pico
+  - **Login:** pico  
   - **Password:** luckfox  
   - **Static IP:** 172.32.0.70  
   - **SSH Login:**  
@@ -41,6 +41,8 @@ To clear all SSH known hosts entries:
 echo. > %userprofile%\.ssh\known_hosts
 ```
 
+---
+
 ## **Install Node-RED and Node.js (Ubuntu)**
 Execute the following command to install or update Node.js and Node-RED:  
 ```bash
@@ -50,10 +52,14 @@ bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/mast
 ---
 
 ## **Transfer Files Using `scp`**
-Transfer the entire `python-periphery-master` directory from your local machine to the Ubuntu server:
-```bash
-scp -r python-periphery-master pico@172.32.0.70:/home/pico
-```
+1. **Transfer a ZIP file:**  
+   ```bash
+   scp python-periphery-master.zip pico@172.32.0.70:/home/pico
+   ```
+2. **Transfer a folder:**  
+   ```bash
+   scp -r python-periphery-master pico@172.32.0.70:/home/pico
+   ```
 
 ---
 
