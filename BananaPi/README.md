@@ -1,4 +1,4 @@
-# Banana Pi Setup Instructions
+# Banana Pi Setup Instructions  
 
 ## **Default Login Credentials**
 - **Login Option 1:**  
@@ -80,14 +80,22 @@ lsblk
 ## **Node-RED Installation**
 To pull the Node-RED installation script, make it executable, and run it:
   
-  ```bash 
-  wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/Node_RED_Installation.sh
-  ```
-  
-  ```bash
-  chmod +x Node_RED_Installation.sh
-  ```
-  
-  ```bash
-  ./Node_RED_Installation.sh
-  ```
+```bash 
+wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/Node_RED_Installation.sh
+```
+
+```bash
+chmod +x Node_RED_Installation.sh
+```
+
+```bash
+./Node_RED_Installation.sh
+```
+
+---
+
+## **Banana Pi YouTube Playlist Links**
+
+- **Banana Pi BPI-P2 Pro:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJf7wXYRMxTi6N13cYAuab-)  
+- **Banana Pi BPI-M4 Berry:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJXDh-iKOQY-EMEp0uqdyD2)  
+- **Banana Pi BPI-M4 Zero:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJ4cOlBL80YnnAXfSN2oSzT)
