@@ -1,3 +1,79 @@
+# Orange Pi SBC Setup Guide  
+
+---
+
+### Default Login Credentials
+**Username and Password options:**  
+- Username: **orangepi**  
+  Password: **orangepi**
+
+OR  
+
+- Username: **root**  
+  Password: **orangepi**
+
+---
+
+### SSH Access
+To connect to the Orange Pi device over SSH, use the following commands:  
+
+```bash
+ssh root@<device-ip>
+ssh orangepi@<device-ip>
+```
+Example:
+```bash
+ssh root@192.168.1.15
+ssh orangepi@192.168.1.15
+```
+
+---
+
+### Connect to Wi-Fi
+To list available Wi-Fi networks:  
+
+```bash
+nmcli dev wifi list
+```
+Connect to a specific Wi-Fi network using:  
+
+```bash
+sudo nmcli --ask dev wifi connect <network-ssid>
+```
+Example:
+```bash
+nmcli --ask dev wifi connect Capgemini_4G
+```
+
+---
+
+### View GPIO Pin Mapping
+To see the GPIO pinout configuration on Orange Pi models, use the following command:  
+
+```bash
+gpio readall
+```
+
+---
+
+### List Available Storage Devices
+To list all block storage devices connected to the Orange Pi:  
+
+```bash
+lsblk
+```
+
+---
+
+### Clear SSH Entries (Windows)
+To clear previous SSH entries on a Windows machine, run this command in the Command Prompt:  
+
+```cmd
+echo. > %userprofile%\.ssh\known_hosts
+```
+
+---
+
 # Orange Pi Zero 3
 ```
 root@orangepizero3:~# gpio readall
@@ -25,7 +101,7 @@ root@orangepizero3:~# gpio readall
  | GPIO | wPi |   Name   |  Mode  | V | Physical | V |  Mode  | Name     | wPi | GPIO |
  +------+-----+----------+--------+---+   H616   +---+--------+----------+-----+------+
 ```
-
+---
 # Orange Pi 4A
 ```
 root@orangepi4a:~# gpio readall
