@@ -1,17 +1,17 @@
-# Banana Pi Setup Instructions (Updated)
+# Banana Pi Setup Instructions
 
 ## **Default Login Credentials**
-- **Login Option 1(Banana Pi M4-Berry & Banana Pi M4-Zero):**  
-  - **Username:** `pi`  
-  - **Password:** `bananapi`
+- **Login Option 1:**  
+  - **Username:** pi  
+  - **Password:** bananapi  
 
-- **Login Option 2(Banana Pi M4-Berry & Banana Pi M4-Zero):**  
-  - **Username:** `root`  
-  - **Password:** `bananapi`  
+- **Login Option 2:**  
+  - **Username:** root  
+  - **Password:** bananapi  
 
 - **Login Option 3 (Banana Pi P2-Pro):**  
-  - **Username:** `linaro`  
-  - **Password:** `linaro` 
+  - **Username:** linaro  
+  - **Password:** linaro  
 
 ---
 
@@ -74,3 +74,12 @@ lsblk
    ```bash
    sudo mkfs.ext4 /dev/mmcblk1p1
    ```
+
+---
+
+## **Node-RED Installation**
+To pull the Node-RED installation script, make it executable, and run it:
+
+`bash wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/Node_RED_Installation.sh`
+`bash chmod +x Node_RED_Installation.sh`
+`bash ./Node_RED_Installation.sh`
