@@ -5,12 +5,12 @@
 ### Default Login Credentials
 **Username and Password options:**  
 - **Username**: `orangepi`
-  **Password**: `orangepi`
+- **Password**: `orangepi`
 
 OR  
 
 - **Username**: `root`
-  **Password**: `orangepi`
+- **Password**: `orangepi`
 
 ---
 
