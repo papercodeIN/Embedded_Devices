@@ -143,6 +143,14 @@ This integration setup with the expansion board allows for seamless disk managem
 
 ---
 
+
+## **Orange Pi YouTube Playlist Links**
+
+- **Orange Pi Zero 3:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaI_eIo1gmEp6e2QRkiUqdk3)  
+- **Ornage Pi 4A:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaKhG8dJjDUM0EYC39efBKAw)
+
+---
+
 # Orange Pi Zero 3
 ```
 root@orangepizero3:~# gpio readall
