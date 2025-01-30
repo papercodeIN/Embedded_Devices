@@ -1,13 +1,17 @@
-# Banana Pi Setup Instructions  
+# Banana Pi Setup Instructions (Updated)
 
 ## **Default Login Credentials**
-- **Login Option 1:**  
+- **Login Option 1(Banana Pi M4-Berry & Banana Pi M4-Zero):**  
   - **Username:** pi  
   - **Password:** bananapi  
 
-- **Login Option 2:**  
+- **Login Option 2(Banana Pi M4-Berry & Banana Pi M4-Zero):**  
   - **Username:** root  
   - **Password:** bananapi  
+
+- **Login Option 3 (Banana Pi P2-Pro):**  
+  - **Username:** linaro  
+  - **Password:** linaro  
 
 ---
 
@@ -36,7 +40,7 @@ echo. > %userprofile%\.ssh\known_hosts
 ---
 
 ## **Setup Armbian**
-To Setup Armbian on Banana Pi:
+To setup Armbian on Banana Pi:
 ```bash
 sudo armbian-install
 ```
@@ -70,5 +74,3 @@ lsblk
    ```bash
    sudo mkfs.ext4 /dev/mmcblk1p1
    ```
-
----
