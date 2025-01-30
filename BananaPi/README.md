@@ -2,16 +2,16 @@
 
 ## **Default Login Credentials**
 - **Login Option 1(Banana Pi M4-Berry & Banana Pi M4-Zero):**  
-  - **Username:** pi  
-  - **Password:** bananapi  
+  - **Username:** `pi`  
+  - **Password:** `bananapi`
 
 - **Login Option 2(Banana Pi M4-Berry & Banana Pi M4-Zero):**  
-  - **Username:** root  
-  - **Password:** bananapi  
+  - **Username:** `root`  
+  - **Password:** `bananapi`  
 
 - **Login Option 3 (Banana Pi P2-Pro):**  
-  - **Username:** linaro  
-  - **Password:** linaro  
+  - **Username:** `linaro`  
+  - **Password:** `linaro` 
 
 ---
 
