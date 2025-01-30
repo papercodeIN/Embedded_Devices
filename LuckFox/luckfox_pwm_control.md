@@ -1,4 +1,3 @@
-```markdown
 # PWM Control for Servo Motor
 
 This guide shows how to enable PWM on a system, verify if it's enabled, and control a servo motor using a Python program. It assumes you're working on a system where the `periphery` library is available.
