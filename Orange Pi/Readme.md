@@ -74,6 +74,16 @@ echo. > %userprofile%\.ssh\known_hosts
 
 ---
 
+### Install Node-RED
+To install Node-RED on the Orange Pi, use the following command:  
+
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+```
+This command will install Node-RED along with the necessary Node.js components.
+
+---
+
 # Orange Pi Zero 3
 ```
 root@orangepizero3:~# gpio readall
