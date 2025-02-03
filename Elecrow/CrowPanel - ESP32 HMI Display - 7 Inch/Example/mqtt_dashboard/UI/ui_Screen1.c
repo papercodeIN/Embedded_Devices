@@ -194,7 +194,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_Label5, 280);
     lv_obj_set_y(ui_Label5, -9);
     lv_obj_set_align(ui_Label5, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label5, "Data 4");
+    lv_label_set_text(ui_Label5, "Wind");
     lv_obj_set_style_text_color(ui_Label5, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Label5, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui_Label5, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -206,7 +206,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_Label6, -290);
     lv_obj_set_y(ui_Label6, -9);
     lv_obj_set_align(ui_Label6, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label6, "Data 1");
+    lv_label_set_text(ui_Label6, "Temperature");
     lv_obj_set_style_text_color(ui_Label6, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Label6, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui_Label6, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -218,7 +218,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_Label7, -100);
     lv_obj_set_y(ui_Label7, -9);
     lv_obj_set_align(ui_Label7, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label7, "Data 2");
+    lv_label_set_text(ui_Label7, "Pressure");
     lv_obj_set_style_text_color(ui_Label7, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Label7, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui_Label7, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -230,7 +230,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_Label8, 90);
     lv_obj_set_y(ui_Label8, -9);
     lv_obj_set_align(ui_Label8, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_Label8, "Data 3");
+    lv_label_set_text(ui_Label8, "Humidity");
     lv_obj_set_style_text_color(ui_Label8, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_Label8, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui_Label8, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);

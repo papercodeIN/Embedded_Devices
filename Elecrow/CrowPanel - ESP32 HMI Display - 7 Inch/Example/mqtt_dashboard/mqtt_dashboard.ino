@@ -7,14 +7,41 @@
 #include <Adafruit_GFX.h>
 #include "ui.h"
 #include <WiFi.h>
+#include <PubSubClient.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
 
-const char* ssid = "Capgemini_4G";  
-const char* password = "MN704116"; // Set a password  
+// NTP settings
+const char* timeServer = "pool.ntp.org"; // NTP server
+const long utcOffsetInSeconds = 19800;  // Time zone offset for IST (India Standard Time, UTC+5:30)
+
+// Create an instance of WiFiUDP and NTPClient
+WiFiUDP udp;
+NTPClient timeClient(udp, timeServer, utcOffsetInSeconds);
+
+#define wifi_ssid "Capgemini_4G"
+#define wifi_password "MN704116"
+
+const char *mqtt_server = "broker.hivemq.com";
+const int mqtt_port = 1883;
+
+// MQTT topics
+const char* topic_temperature = "fusion_automate/temperature";
+const char* topic_pressure = "fusion_automate/pressure";
+const char* topic_humidity = "fusion_automate/humidity";
+const char* topic_wind = "fusion_automate/wind";
+
+// WiFi and MQTT clients
+WiFiClient espClient;
+PubSubClient mqttClient(espClient);
+
+// Variables to store received values
+int temperature = 0, pressure = 0, humidity = 0, wind = 0;
 
 // These settings will affect the IP address allocation for devices connected to the Access Point  
-IPAddress local_ip(192, 168, 1, 67);  // The ESP32's IP address as an Access Point is typically 192.168.4.1  
-IPAddress gateway(192, 168, 1, 1);    // Gateway address  
-IPAddress subnet(255, 255, 255, 0);   // Subnet mask 
+// IPAddress local_ip(192, 168, 1, 67);  // The ESP32's IP address as an Access Point is typically 192.168.4.1  
+// IPAddress gateway(192, 168, 1, 1);    // Gateway address  
+// IPAddress subnet(255, 255, 255, 0);   // Subnet mask 
 
 class LGFX : public lgfx::LGFX_Device
 {
@@ -185,44 +212,146 @@ void setup()
 
   ui_init();
 
-  // Set to Access Point mode  
-  WiFi.mode(WIFI_AP);  
-  
-  // Configure Access Point parameters  
-  WiFi.softAPConfig(local_ip, gateway, subnet);  
-  WiFi.softAP(ssid, password);  
-  
-  // Print Access Point information  
-  Serial.print("AP IP address: ");  
-  Serial.println(WiFi.softAPIP());  
-  // Get the IP address of the softAP
-  String ipAddress = WiFi.softAPIP().toString();
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(wifi_ssid);
+  WiFi.begin(wifi_ssid, wifi_password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  String ipAddress = WiFi.localIP().toString();
 
   // Set the label text with the IP address
   lv_label_set_text(ui_ipaddress, ipAddress.c_str());  
 
+  mqttClient.setServer(mqtt_server, mqtt_port);
+  mqttClient.setCallback(mqttCallback);
+
+  // Start NTP client
+  timeClient.begin();
+  timeClient.update();
+  
   // Create a timer to update the arc value every 5 seconds (5000 ms)
-  lv_timer_t *timer = lv_timer_create(update_arc_value, 5000, NULL);
+  // lv_timer_t *timer = lv_timer_create(update_arc_value, 5000, NULL);
+
+  lv_timer_t *ui_timer  = lv_timer_create(update_ui, 2000, NULL);
+  lv_timer_t *time_timer  = lv_timer_create(update_time, 60000, NULL);
 
   lv_timer_handler();
 }
 
-// Timer callback function to update the arc value
-void update_arc_value(lv_timer_t *timer) {
-  int newValue = random(0, 100);  // Generate a random value between 0 and 100
-  lv_arc_set_value(ui_Arc1, newValue);  // Update the arc value
-  
-  // Convert the integer value to a string
-  char valueStr[4];  // Enough space for 3 digits and null terminator
-  snprintf(valueStr, sizeof(valueStr), "%d", newValue);
-
-  // Update the LVGL label text
-  lv_label_set_text(ui_Label1, valueStr);
-
+// Update the time every minute
+void update_time(lv_timer_t *time_timer) {
+    // Get the current time from NTP client
+    timeClient.update();
+    unsigned long epochTime = timeClient.getEpochTime();  // Get the epoch time
+    
+    // Convert epoch time to a time structure
+    struct tm *timeinfo;
+    timeinfo = localtime((time_t *)&epochTime);
+    
+    // Format the time into DD-MMM-YYYY HH:MM
+    char timeStr[20];  // Make sure the buffer is large enough to hold the formatted string
+    strftime(timeStr, sizeof(timeStr), "%d-%b-%Y %H:%M", timeinfo);
+    
+    // Update the label with the new time
+    lv_label_set_text(ui_datetime, timeStr);
 }
+
+
+
+// MQTT callback function
+void mqttCallback(char* topic, byte* payload, unsigned int length) {
+  char message[length + 1];
+  strncpy(message, (char*)payload, length);
+  message[length] = '\0';
+  
+  int value = atoi(message);  // Convert the message to an integer
+
+  if (strcmp(topic, topic_temperature) == 0) {
+    temperature = value;
+  } else if (strcmp(topic, topic_pressure) == 0) {
+    pressure = value;
+  } else if (strcmp(topic, topic_humidity) == 0) {
+    humidity = value;
+  } else if (strcmp(topic, topic_wind) == 0) {
+    wind = value;
+  }
+}
+
+// Timer callback to update arcs and labels
+void update_ui(lv_timer_t* ui_timer) {
+  // Update arcs
+  lv_arc_set_value(ui_Arc1, temperature);
+  lv_arc_set_value(ui_Arc2, pressure);
+  lv_arc_set_value(ui_Arc3, humidity);
+  lv_arc_set_value(ui_Arc4, wind);
+
+  // Update labels
+  char buf[8];
+  snprintf(buf, sizeof(buf), "%d", temperature);
+  lv_label_set_text(ui_Label1, buf);
+
+  snprintf(buf, sizeof(buf), "%d", pressure);
+  lv_label_set_text(ui_Label2, buf);
+
+  snprintf(buf, sizeof(buf), "%d", humidity);
+  lv_label_set_text(ui_Label3, buf);
+
+  snprintf(buf, sizeof(buf), "%d", wind);
+  lv_label_set_text(ui_Label4, buf);
+}
+
+
+void reconnect() {
+  int attemptCount = 0;
+  // Loop until reconnected
+  while (!mqttClient.connected()) {
+    Serial.print("Attempting MQTT connection...");
+
+    // Generate a unique Client ID based on the ESP32 chip ID
+    String clientId = "FusionAutomate_" + String((uint32_t)ESP.getEfuseMac(), HEX);
+    
+    // Attempt to connect
+    if (mqttClient.connect(clientId.c_str())) {
+      Serial.println("Connected to MQTT broker!");
+      
+      // Resubscribe to topics if needed
+      mqttClient.subscribe("fusion_automate/temperature");
+      mqttClient.subscribe("fusion_automate/pressure");
+      mqttClient.subscribe("fusion_automate/humidity");
+      mqttClient.subscribe("fusion_automate/wind");
+      
+    } else {
+      Serial.print("Failed, rc=");
+      Serial.print(mqttClient.state());
+      Serial.println(" Retrying...");
+      
+      // Exponential backoff up to 30 seconds
+      int delayTime = min(5000 * (1 << attemptCount), 30000);
+      delay(delayTime);
+      
+      attemptCount = (attemptCount < 5) ? attemptCount + 1 : 5;
+    }
+  }
+}
+
 
 void loop()
 {
+  if (!mqttClient.connected()) {
+    reconnect();
+  }
+  mqttClient.loop();  // Handle MQTT messages
+
   lv_timer_handler();
   delay(10);
 }
