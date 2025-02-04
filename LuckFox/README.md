@@ -88,7 +88,7 @@ scp -r python-periphery-master pico@172.32.0.70:/home/pico
 ---
 
 # **Install Python Library (Ubuntu)**
-
+## Option 1
 ### **1. Navigate to the Transferred Directory**
 ```bash
 cd python-periphery-master
@@ -98,7 +98,10 @@ cd python-periphery-master
 ```bash
 sudo python3 setup.py install
 ```
-
+## Option 2
+```bash
+pip install python-periphery
+```
 ---
 
 # **Control GPIO Using `periphery` in Python**
