@@ -21,6 +21,10 @@ sudo ntpdate pool.ntp.org
 echo "Updated system date and time:"
 date
 
+# Update the package lists
+echo "Updating package lists..."
+sudo apt-get update
+
 # Update and upgrade the system
 echo "Updating and upgrading the system..."
 sudo apt update && sudo apt upgrade -y
@@ -43,4 +47,9 @@ mv debian-template/wiringpi_3.6_arm64.deb /tmp/
 echo "Installing WiringPi package..."
 sudo apt install -y /tmp/wiringpi_3.6_arm64.deb
 
-echo "Script completed successfully!"
+# Return to the parent directory and remove the WiringPi folder
+cd ..
+echo "Cleaning up: Removing WiringPi directory..."
+rm -rf WiringPi
+
+echo "Script completed successfully, and the WiringPi directory has been deleted."
