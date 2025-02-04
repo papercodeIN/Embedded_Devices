@@ -5,7 +5,7 @@
 1. **Download the Installation Script**  
    Run the following command to download the Wiring Pi installation script:  
    ```bash
-   wget https://github.com/papercodeIN/Embedded_Devices/blob/main/Orange%20Pi/install_wiringpi.sh
+   wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/Orange%20Pi/install_wiringpi.sh
    ```
 
 2. **Make the Script Executable**  
@@ -27,7 +27,7 @@
 1. **Download the Python Script**  
    Use the following command to download the sample Python script that blinks an LED:  
    ```bash
-   wget https://github.com/papercodeIN/Embedded_Devices/blob/main/Orange%20Pi/led_blink.py
+   wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/Orange%20Pi/led_blink.py
    ```
 
 2. **Run the Python Script**  
