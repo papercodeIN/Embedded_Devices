@@ -92,6 +92,9 @@ chmod +x Node_RED_Installation.sh
 ./Node_RED_Installation.sh
 ```
 
+```bash
+gpio readall
+```
 ---
 
 ## **WiringPi Installation**
