@@ -94,6 +94,22 @@ chmod +x Node_RED_Installation.sh
 
 ---
 
+## **WiringPi Installation**
+To pull the installation script, make it executable, and run it:
+  
+```bash 
+wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/WiringPi_Installation.sh
+```
+
+```bash
+chmod +x WiringPi_Installation.sh
+```
+
+```bash
+./WiringPi_Installation.sh
+```
+
+---
 ## **Banana Pi YouTube Playlist Links**
 
 - **Banana Pi BPI-P2 Pro:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJf7wXYRMxTi6N13cYAuab-)  
