@@ -21,13 +21,13 @@ sudo ntpdate pool.ntp.org
 echo "Updated system date and time:"
 date
 
-# Update and upgrade the system
-echo "Updating and upgrading the system..."
-sudo apt update && sudo apt upgrade -y
-
 # Update the package lists
 echo "Updating package lists..."
 sudo apt-get update
+
+# Update and upgrade the system
+echo "Updating and upgrading the system..."
+sudo apt update && sudo apt upgrade -y
 
 # Install necessary packages
 echo "Installing required packages..."
@@ -48,4 +48,8 @@ sudo python3 setup.py install
 echo "Returning to the root directory..."
 cd ~
 
-echo "WiringPi installation completed successfully."
+# Remove the WiringPi-Python directory
+echo "Deleting the WiringPi-Python directory..."
+rm -rf WiringPi-Python
+
+echo "WiringPi installation completed successfully, and the directory has been deleted."
