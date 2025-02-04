@@ -113,6 +113,22 @@ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=4M status=progress
    gpio readall
    ```
 
+## **WiringPi-Python Installation**
+1. **Download the Installation Script:**  
+   ```bash
+   wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/BananaPi/WiringPi_Python_Installation.sh
+
+   ```
+
+2. **Make the Script Executable:**  
+   ```bash
+   chmod +x WiringPi_Python_Installation.sh
+   ```
+
+3. **Run the Installation Script:**  
+   ```bash
+   ./WiringPi_Python_Installation.sh
+   ```
 ---
 
 ## **Banana Pi YouTube Playlist Links**
