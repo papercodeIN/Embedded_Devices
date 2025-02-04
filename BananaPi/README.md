@@ -76,7 +76,7 @@ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=4M status=progress
 ## **Node-RED Installation**
 1. **Download the Installation Script:**  
    ```bash
-   wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/Node_RED_Installation.sh
+   wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/main/BananaPi/Node_RED_Installation.sh
    ```
 
 2. **Make the Script Executable:**  
@@ -94,7 +94,8 @@ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=4M status=progress
 ## **WiringPi Installation**
 1. **Download the Installation Script:**  
    ```bash
-   wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/WiringPi_Installation.sh
+   wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/main/BananaPi/WiringPi_Installation.sh
+
    ```
 
 2. **Make the Script Executable:**  
