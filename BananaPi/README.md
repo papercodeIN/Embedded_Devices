@@ -1,116 +1,124 @@
-# Banana Pi Setup Instructions  
+# **Banana Pi Setup Guide**
 
 ## **Default Login Credentials**
-- **Login Option 1:**  
-  - **Username:** `pi`  
-  - **Password:** `bananapi`  
+Below are the default login credentials based on your Banana Pi model:
 
-- **Login Option 2:**  
-  - **Username:** `root`  
-  - **Password:** `bananapi`  
-
-- **Login Option 3 (Banana Pi P2-Pro):**  
-  - **Username:** `linaro`  
-  - **Password:** `linaro`  
+| **Login Option** | **Username** | **Password** |
+|-----------------|-------------|-------------|
+| Option 1        | `pi`        | `bananapi`  |
+| Option 2        | `root`      | `bananapi`  |
+| Option 3 (P2-Pro) | `linaro`  | `linaro`    |
 
 ---
 
-## **Connect to Wi-Fi**
-1. List available Wi-Fi networks:
+## **Connecting to Wi-Fi**
+To connect your Banana Pi to a Wi-Fi network:
+
+1. **List Available Wi-Fi Networks:**
    ```bash
    nmcli dev wifi list
    ```
-2. Connect to a Wi-Fi network:
+
+2. **Connect to a Wi-Fi Network:**
    ```bash
    sudo nmcli --ask dev wifi connect <network-ssid>
    ```
-   Example:
+   **Example:**  
    ```bash
    nmcli --ask dev wifi connect Capgemini_4G
    ```
 
 ---
 
-## **Clear SSH Entries on a Windows Machine**
-To clear all SSH known hosts entries:
+## **Clear SSH Host Entries (Windows)**
+If you encounter SSH fingerprint errors, clear the known hosts file:
+
 ```cmd
 echo. > %userprofile%\.ssh\known_hosts
 ```
 
 ---
 
-## **Setup Armbian**
-To setup Armbian on Banana Pi:
+## **Armbian Setup**
+To set up Armbian on Banana Pi:
+
 ```bash
 sudo armbian-install
 ```
 
 ---
 
-## **Disk Operations and Formatting**
-
-### **Identify Storage Devices**
-To list all block storage devices:
+## **Disk Operations & Formatting**
+### **1. List Available Storage Devices**
 ```bash
 lsblk
 ```
 
-### **Wipe Storage Device**
-1. Wipe the entire storage device with zeroes:
-   ```bash
-   sudo dd if=/dev/zero of=/dev/mmcblk0
-   ```
-2. Alternatively, use a larger block size for faster operations:
-   ```bash
-   sudo dd if=/dev/zero of=/dev/mmcblk0 bs=4M status=progress
-   ```
+### **2. Wipe the Entire Storage Device**
+```bash
+sudo dd if=/dev/zero of=/dev/mmcblk0 bs=4M status=progress
+```
 
-### **Partition and Format Storage**
-1. Create partitions on the storage device:
+> **Note:** This will erase all data on the device. Ensure you've selected the correct block device.
+
+### **3. Partition and Format Storage**
+1. **Create New Partitions:**
    ```bash
    sudo fdisk /dev/mmcblk0
    ```
-2. Format the partition to ext4:
+2. **Format Partition as ext4:**
    ```bash
-   sudo mkfs.ext4 /dev/mmcblk1p1
+   sudo mkfs.ext4 /dev/mmcblk0p1
    ```
 
 ---
 
 ## **Node-RED Installation**
-To pull the Node-RED installation script, make it executable, and run it:
-  
-```bash 
-wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/Node_RED_Installation.sh
-```
+1. **Download the Installation Script:**  
+   ```bash
+   wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/Node_RED_Installation.sh
+   ```
 
-```bash
-chmod +x Node_RED_Installation.sh
-```
+2. **Make the Script Executable:**  
+   ```bash
+   chmod +x Node_RED_Installation.sh
+   ```
 
-```bash
-./Node_RED_Installation.sh
-```
+3. **Run the Installation Script:**  
+   ```bash
+   ./Node_RED_Installation.sh
+   ```
+
 ---
 
 ## **WiringPi Installation**
-To pull the installation script, make it executable, and run it:
-  
-```bash 
-wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/WiringPi_Installation.sh
-```
-```bash
-chmod +x WiringPi_Installation.sh
-```
-```bash
-./WiringPi_Installation.sh
-```
-```bash
-gpio readall
-```
----
-## **Banana Pi YouTube Playlist Links**
+1. **Download the Installation Script:**  
+   ```bash
+   wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/WiringPi_Installation.sh
+   ```
 
-- **Banana Pi BPI-P2 Pro:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJf7wXYRMxTi6N13cYAuab-)  
-- **Banana Pi BPI-M4 Berry:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJXDh-iKOQY-EMEp0uqdyD2)  
-- **Banana Pi BPI-M4 Zero:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJ4cOlBL80YnnAXfSN2oSzT)
+2. **Make the Script Executable:**  
+   ```bash
+   chmod +x WiringPi_Installation.sh
+   ```
+
+3. **Run the Installation Script:**  
+   ```bash
+   ./WiringPi_Installation.sh
+   ```
+
+4. **Verify WiringPi Installation:**  
+   ```bash
+   gpio readall
+   ```
+
+---
+
+## **Banana Pi YouTube Playlist Links**
+Explore detailed tutorials for different Banana Pi models:
+
+- 📺 **[Banana Pi BPI-P2 Pro YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJf7wXYRMxTi6N13cYAuab-)**  
+- 📺 **[Banana Pi BPI-M4 Berry YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJXDh-iKOQY-EMEp0uqdyD2)**  
+- 📺 **[Banana Pi BPI-M4 Zero YouTube Playlist](https://www.youtube.com/playlist?list=PLxrSjjYyzaaJ4cOlBL80YnnAXfSN2oSzT)**  
+
+---
