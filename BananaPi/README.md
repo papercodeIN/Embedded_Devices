@@ -112,7 +112,7 @@ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=4M status=progress
    ```bash
    gpio readall
    ```
-
+---
 ## **WiringPi-Python Installation**
 1. **Download the Installation Script:**  
    ```bash
