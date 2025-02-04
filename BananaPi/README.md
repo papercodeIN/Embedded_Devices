@@ -91,10 +91,6 @@ chmod +x Node_RED_Installation.sh
 ```bash
 ./Node_RED_Installation.sh
 ```
-
-```bash
-gpio readall
-```
 ---
 
 ## **WiringPi Installation**
@@ -103,15 +99,15 @@ To pull the installation script, make it executable, and run it:
 ```bash 
 wget https://github.com/papercodeIN/Embedded_Devices/blob/main/BananaPi/WiringPi_Installation.sh
 ```
-
 ```bash
 chmod +x WiringPi_Installation.sh
 ```
-
 ```bash
 ./WiringPi_Installation.sh
 ```
-
+```bash
+gpio readall
+```
 ---
 ## **Banana Pi YouTube Playlist Links**
 
