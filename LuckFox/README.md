@@ -35,6 +35,34 @@
 
 ---
 
+# **Wi-Fi Hotspot Setup with `nmcli` Commands**
+
+This guide provides commands to create a Wi-Fi hotspot and display its password using `nmcli` in Linux.
+
+---
+
+## **1. Create a Wi-Fi Hotspot**
+
+### **Command Syntax**
+```bash
+nmcli d wifi hotspot ifname <wifi_interface> ssid <network_name> password <password>
+```
+
+### **Example Command**
+```bash
+nmcli d wifi hotspot ifname wlan0 ssid luckfox_ap password 12345678
+```
+- This command creates a Wi-Fi hotspot named `luckfox_ap` on interface `wlan0` with the password `12345678`.
+
+---
+
+## **2. Display the Wi-Fi Hotspot Password**
+```bash
+nmcli dev wifi show-password
+```
+- This command reveals the current password of an active Wi-Fi hotspot.
+```
+---
 ## **Clear SSH Entries on a Windows Machine**
 To clear all SSH known hosts entries:
 ```cmd
