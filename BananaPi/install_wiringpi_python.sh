@@ -31,7 +31,7 @@ sudo apt-get update
 
 # Install necessary packages
 echo "Installing required packages..."
-sudo apt-get -y install git swig python3-dev python3-setuptools
+sudo apt install -y build-essential python3-dev python3-setuptools swig git gettext-base fakeroot
 
 # Clone the WiringPi-Python repository
 echo "Cloning WiringPi-Python repository..."
@@ -39,14 +39,6 @@ git clone --recursive https://github.com/Dangku/WiringPi-Python.git
 
 # Navigate to the WiringPi-Python directory
 cd WiringPi-Python
-
-# Update submodules
-echo "Updating submodules..."
-git submodule update --init --remote
-
-# Generate bindings
-echo "Generating bindings..."
-python3 generate-bindings.py > bindings.i
 
 # Install WiringPi-Python
 echo "Installing WiringPi-Python..."
