@@ -37,7 +37,7 @@ ssh root@192.168.123.100
 ```
 ---
 
-# **Wi-Fi Setup on Ubuntu**
+# **Wi-Fi Setup on Ubuntu (Luckfox Pico Ultra W)**
 
 ### **List Available Wi-Fi Networks**
 ```bash
