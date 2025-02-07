@@ -82,6 +82,18 @@ echo. > %userprofile%\.ssh\known_hosts
 
 ---
 
+# **Ceheck CPU Details on Buildroot OS**
+To clear all SSH known hosts entries:  
+```bash
+cat /proc/cpuinfo
+```
+```
+uname -a
+```
+```
+
+---
+
 # **Install Node-RED and Node.js (Ubuntu)**
 
 ### **One-Step Installation**
