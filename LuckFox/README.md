@@ -1,4 +1,7 @@
 # **Environment Details**
+
+## **Luckfox Pico Mini B / Pico Pro / Pico Max / Ultra W**
+
 ### **Ubuntu Machine**
 - **Login:** pico  
 - **Password:** luckfox  
@@ -17,6 +20,21 @@
     ssh root@172.32.0.93
     ```
 
+---
+
+## **Luckfox Lyra**
+
+### **Default Machine Details (Buildroot and Ubuntu OS)**
+- **Username:** root  
+- **Password:** luckfox  
+- **USB Static IP Address:** 192.168.123.100  
+
+### **SSH Login**
+Ensure your device is connected via USB and the static IP is reachable.  
+SSH into the Lyra device using the following command:  
+```bash
+ssh root@192.168.123.100
+```
 ---
 
 # **Wi-Fi Setup on Ubuntu**
