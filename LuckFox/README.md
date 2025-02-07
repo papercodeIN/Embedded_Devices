@@ -82,12 +82,15 @@ echo. > %userprofile%\.ssh\known_hosts
 
 ---
 
-# **Ceheck CPU Details on Buildroot OS**
-To clear all SSH known hosts entries:  
-```bash
+# **Check CPU Details on Buildroot OS**
+
+To check CPU details, use the following commands:
+
+```sh
 cat /proc/cpuinfo
 ```
-```
+
+```sh
 uname -a
 ```
 
