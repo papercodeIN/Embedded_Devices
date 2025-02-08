@@ -129,6 +129,14 @@ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=4M status=progress
    ```bash
    ./WiringPi_Python_Installation.sh
    ```
+4. **Verify WiringPi-Python Installation:**  
+   ```bash
+   wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/BananaPi/led_blink.py
+   ```
+   ### Change Pin Number as per your setup
+   ```bash
+   python3 led_blink.py
+   ```   
 ---
 
 ## **Banana Pi YouTube Playlist Links**
