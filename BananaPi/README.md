@@ -129,7 +129,7 @@ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=4M status=progress
    ```bash
    ./WiringPi_Python_Installation.sh
    ```
-4. **Verify WiringPi-Python Installation:**  
+4. **Verify WiringPi-Python Installation using Blink Python Code:**  
    ```bash
    wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/BananaPi/led_blink.py
    ```
