@@ -158,6 +158,32 @@ Got it! Here’s how you can incorporate the LED blink code into the steps for W
    ```   
 ---
 
+## **RPI.GPIO Installation**
+1. **Download the Installation Script:**  
+   ```bash
+   wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/BananaPi/RPI_GPIO_Installation.sh
+
+   ```
+
+2. **Make the Script Executable:**  
+   ```bash
+   chmod +x RPI_GPIO_Installation.sh
+   ```
+
+3. **Run the Installation Script:**  
+   ```bash
+   ./RPI_GPIO_Installation.sh
+   ```
+4. **Verify WiringPi-Python Installation using Blink Python Code:**  
+   ```bash
+   wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/BananaPi/led_blink_rpi_gpio.py
+   ```
+   ### Change Pin Number as per your setup
+   ```bash
+   python led_blink_rpi_gpio.py
+   ```   
+---
+
 ## **Banana Pi YouTube Playlist Links**
 Explore detailed tutorials for different Banana Pi models:
 
