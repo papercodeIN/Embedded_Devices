@@ -7,11 +7,11 @@ if wiringpi.wiringPiSetup() == -1:
     print("WiringPi setup failed!")
     exit(1)
 
-# Set GPIO pin 2 as OUTPUT
-pin = 2
+# Set GPIO pin 7 as OUTPUT
+pin = 7
 wiringpi.pinMode(pin, GPIO.OUTPUT)
 
-print("Blinking LED on GPIO pin 2...")
+print("Blinking LED on GPIO pin 7...")
 
 try:
     while True:
