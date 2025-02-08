@@ -89,30 +89,51 @@ sudo dd if=/dev/zero of=/dev/mmcblk0 bs=4M status=progress
    ./Node_RED_Installation.sh
    ```
 
+Got it! Here’s how you can incorporate the LED blink code into the steps for WiringPi installation and control the GPIO pins.
+
 ---
 
-## **WiringPi Installation**
-1. **Download the Installation Script:**  
+## **WiringPi Installation and LED Blink Code**
+
+1. **Download the Installation Script:**
    ```bash
    wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/main/BananaPi/WiringPi_Installation.sh
-
    ```
 
-2. **Make the Script Executable:**  
+2. **Make the Script Executable:**
    ```bash
    chmod +x WiringPi_Installation.sh
    ```
 
-3. **Run the Installation Script:**  
+3. **Run the Installation Script:**
    ```bash
    ./WiringPi_Installation.sh
    ```
 
-4. **Verify WiringPi Installation:**  
+4. **Verify WiringPi Installation:**
    ```bash
    gpio readall
    ```
+
+5. **Set GPIO Pin 7 as Output:**
+   ```bash
+   gpio mode 2 out
+   ```
+
+6. **Turn the LED On:**
+   ```bash
+   gpio write 7 1
+   ```
+
+7. **Turn the LED Off:**
+   ```bash
+   gpio write 7 0
+   ```
+
 ---
+
+This will make your LED blink 10 times with an interval of 1 second. If you need any more help, feel free to ask!
+
 ## **WiringPi-Python Installation**
 1. **Download the Installation Script:**  
    ```bash
