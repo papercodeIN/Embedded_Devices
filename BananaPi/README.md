@@ -117,7 +117,7 @@ Got it! Here’s how you can incorporate the LED blink code into the steps for W
 
 5. **Set GPIO Pin 7 as Output:**
    ```bash
-   gpio mode 2 out
+   gpio mode 7 out
    ```
 
 6. **Turn the LED On:**
