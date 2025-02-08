@@ -132,8 +132,6 @@ Got it! Here’s how you can incorporate the LED blink code into the steps for W
 
 ---
 
-This will make your LED blink 10 times with an interval of 1 second. If you need any more help, feel free to ask!
-
 ## **WiringPi-Python Installation**
 1. **Download the Installation Script:**  
    ```bash
