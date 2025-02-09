@@ -24,16 +24,26 @@
 
 ## **Luckfox Lyra**
 
-### **Default Machine Details (Buildroot and Ubuntu OS)**
+### **Default Machine Details - Buildroot OS **
 - **Username:** root  
 - **Password:** luckfox  
 - **USB Static IP Address:** 192.168.123.100  
-
 ### **SSH Login**
 Ensure your device is connected via USB and the static IP is reachable.  
 SSH into the Lyra device using the following command:  
 ```bash
 ssh root@192.168.123.100
+```
+
+### **Default Machine Details - Ubuntu OS**
+- **Username:** lyra  
+- **Password:** luckfox  
+- **USB Static IP Address:** 192.168.123.100  
+### **SSH Login**
+Ensure your device is connected via USB and the static IP is reachable.  
+SSH into the Lyra device using the following command:  
+```bash
+ssh lyra@192.168.123.100
 ```
 ---
 
