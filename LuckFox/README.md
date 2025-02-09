@@ -24,7 +24,7 @@
 
 ## **Luckfox Lyra**
 
-### **Default Machine Details - Buildroot OS **
+### **Default Machine Details - Buildroot OS**
 - **Username:** root  
 - **Password:** luckfox  
 - **USB Static IP Address:** 192.168.123.100  
