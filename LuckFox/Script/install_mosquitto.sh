@@ -28,7 +28,7 @@ sudo apt update -y
 echo "==============================="
 echo "Installing Mosquitto..."
 echo "==============================="
-sudo apt install -y mosquitto
+sudo apt install -y mosquitto mosquitto-clients
 
 # Enable Mosquitto service to start on boot
 echo "==============================="
