@@ -102,7 +102,7 @@ uname -a
 
 ---
 
-# **Install Mosquitto on Luckfox Pico Ultra W**
+# **Install Mosquitto MQTT Broker on Luckfox Pico Ultra W**
 
 ## **1️⃣ Download & Run the Script**  
 Run the following commands:  
