@@ -164,21 +164,21 @@ This guide provides step-by-step instructions to install and run the **NanoMQ** 
 Run the following command to download the **NanoMQ** `.deb` package:  
 
 ```bash
-wget https://www.emqx.com/en/downloads/nanomq/v0.23.2/nanomq-0.23.2-linux-armhf.deb
+wget https://www.emqx.com/en/downloads/nanomq/v0.18.2/nanomq-0.23.2-linux-armhf.deb
 ```
 
 ## **2️⃣ Change File Ownership (Fix Permission Issue)**  
 Set the correct ownership to prevent **permission errors** when installing:  
 
 ```bash
-sudo chown _apt nanomq-0.23.2-linux-armhf.deb
+sudo chown _apt nanomq-0.18.2-linux-armhf.deb
 ```
 
 ## **3️⃣ Install NanoMQ**  
 Run the following command to install the downloaded package:  
 
 ```bash
-sudo apt install ./nanomq-0.23.2-linux-armhf.deb
+sudo apt install ./nanomq-0.18.2-linux-armhf.deb
 ```
 
 ## **4️⃣ Start NanoMQ**  
