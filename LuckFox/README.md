@@ -160,16 +160,12 @@ If working, you'll see **"Hello, MQTT!"** in the subscriber terminal. ✅
 
 This guide provides step-by-step instructions to install and run the **NanoMQ** MQTT broker on a **Luckfox Pico Ultra W**.  
 
----
-
 ## **1️⃣ Download NanoMQ Package**  
 Run the following command to download the **NanoMQ** `.deb` package:  
 
 ```bash
 wget https://www.emqx.com/en/downloads/nanomq/v0.23.2/nanomq-0.23.2-linux-armhf.deb
 ```
-
----
 
 ## **2️⃣ Change File Ownership (Fix Permission Issue)**  
 Set the correct ownership to prevent **permission errors** when installing:  
@@ -178,8 +174,6 @@ Set the correct ownership to prevent **permission errors** when installing:
 sudo chown _apt nanomq-0.23.2-linux-armhf.deb
 ```
 
----
-
 ## **3️⃣ Install NanoMQ**  
 Run the following command to install the downloaded package:  
 
@@ -187,16 +181,12 @@ Run the following command to install the downloaded package:
 sudo apt install ./nanomq-0.23.2-linux-armhf.deb
 ```
 
----
-
 ## **4️⃣ Start NanoMQ**  
 Once installed, start the NanoMQ broker:  
 
 ```bash
 nanomq start -d
 ```
-
----
 
 ## **5️⃣ Verify Installation**  
 Check if NanoMQ is running:  
@@ -206,8 +196,6 @@ ps aux | grep nanomq
 ```
 
 If it's running, you should see an output with `nanomq` listed.  
-
----
 
 ## **6️⃣ Configure NanoMQ (Optional)**  
 To modify NanoMQ settings, edit its configuration file:  
@@ -221,8 +209,6 @@ After making changes, restart NanoMQ:
 ```bash
 nanomq restart
 ```
-
----
 
 ## **7️⃣ Test NanoMQ Broker**  
 ### **Subscribe to a topic**  
@@ -242,8 +228,6 @@ If working correctly, the subscriber terminal should display:
 Hello, NanoMQ!
 ```
 
----
-
 ## **8️⃣ Get Device IP for MQTT Connection**  
 To connect external clients, find your device’s IP address:  
 
@@ -252,8 +236,6 @@ hostname -I | awk '{print $1}'
 ```
 
 Use this IP with **port 1883** in your MQTT client.  
-
----
 
 ## **🎉 NanoMQ is now installed and running!** 🚀  
 You can now use **NanoMQ** for MQTT-based IoT applications on the **Luckfox Pico Ultra W**.
