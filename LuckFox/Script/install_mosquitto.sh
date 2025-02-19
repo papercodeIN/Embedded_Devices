@@ -28,7 +28,7 @@ sudo apt update -y
 echo "==============================="
 echo "Installing Mosquitto..."
 echo "==============================="
-sudo apt install -y mosquitto mosquitto-clients
+sudo apt install -y mosquitto
 
 # Enable Mosquitto service to start on boot
 echo "==============================="
@@ -40,7 +40,7 @@ sudo systemctl enable mosquitto
 echo "==============================="
 echo "Starting Mosquitto service..."
 echo "==============================="
-sudo systemctl start mosquitto
+sudo systemctl start mosquitto mosquitto-clients
 
 # Verify installation
 echo "==============================="
@@ -52,7 +52,7 @@ sudo systemctl status mosquitto --no-pager
 echo "==============================="
 echo "Configuring Mosquitto listener on port 1883..."
 echo "==============================="
-sudo bash -c 'echo "listener 1883" >> /etc/mosquitto/mosquitto.conf'
+sudo bash -c 'echo -e "listener 1883\nallow_anonymous true" >> /etc/mosquitto/mosquitto.conf'
 
 # Restart Mosquitto service to apply changes
 echo "==============================="
@@ -60,6 +60,13 @@ echo "Restarting Mosquitto service..."
 echo "==============================="
 sudo systemctl restart mosquitto
 
+# Get the device's IP address
+IP_ADDRESS=$(hostname -I | awk '{print $1}')
+
 echo "==============================="
 echo "Mosquitto installation and configuration complete!"
+echo "==============================="
+echo "MQTT Broker is running!"
+echo "IP Address: $IP_ADDRESS"
+echo "Port: 1883"
 echo "==============================="
