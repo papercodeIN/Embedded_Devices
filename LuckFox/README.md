@@ -1,6 +1,6 @@
 # **Environment Details**
 
-## **Luckfox Pico Mini B / Pico Pro / Pico Max / Ultra W**
+## **📌 Luckfox Pico Mini B / Pico Pro / Pico Max / Ultra W**
 
 ### **Ubuntu Machine**
 - **Login:** pico  
@@ -22,7 +22,7 @@
 
 ---
 
-## **Luckfox Lyra**
+## **📌 Luckfox Lyra**
 
 ### **Buildroot OS**
 - **Username:** root  
@@ -43,7 +43,7 @@
     ```
 ---
 
-# **Wi-Fi Setup on Ubuntu (Luckfox Pico Ultra W)**
+# **📌 Wi-Fi Setup on Ubuntu (Luckfox Pico Ultra W)**
 
 ### **List Available Wi-Fi Networks**
 ```bash
@@ -61,7 +61,7 @@ sudo nmcli --ask dev wifi connect Capgemini_4G
 
 ---
 
-# **Wi-Fi Hotspot Setup Using `nmcli`**
+# **📌 Wi-Fi Hotspot Setup Using `nmcli`**
 
 ### **1. Create a Wi-Fi Hotspot**
 ```bash
@@ -80,7 +80,7 @@ nmcli dev wifi show-password
 
 ---
 
-# **Clear SSH Entries on Windows**
+# **📌 Clear SSH Entries on Windows**
 To clear all SSH known hosts entries:  
 ```cmd
 echo. > %userprofile%\.ssh\known_hosts
@@ -88,7 +88,7 @@ echo. > %userprofile%\.ssh\known_hosts
 
 ---
 
-# **Check CPU Details on Buildroot OS**
+# **📌 Check CPU Details on Buildroot OS**
 
 To check CPU details, use the following commands:
 
@@ -102,7 +102,7 @@ uname -a
 
 ---
 
-# **Install Mosquitto MQTT Broker on Luckfox Pico Ultra W**
+# **📌 Install Mosquitto MQTT Broker on Luckfox Pico Ultra W**
 
 ## **1️⃣ Download & Run the Script**  
 Run the following commands:  
@@ -156,7 +156,7 @@ If working, you'll see **"Hello, MQTT!"** in the subscriber terminal. ✅
 
 ---
 
-# **Install NanoMQ on Luckfox Pico Ultra W**  
+# **📌 Install NanoMQ MQTT Broker on Luckfox Pico Ultra W**  
 
 This guide provides step-by-step instructions to install and run the **NanoMQ** MQTT broker on a **Luckfox Pico Ultra W**.  
 
@@ -242,7 +242,7 @@ You can now use **NanoMQ** for MQTT-based IoT applications on the **Luckfox Pico
 
 ---
 
-# **Install Node-RED and Node.js (Ubuntu)**
+# **📌 Install Node-RED and Node.js (Ubuntu)**
 
 ### **One-Step Installation**
 ```bash
@@ -251,7 +251,7 @@ bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/mast
 
 ---
 
-# **File Transfer Using `scp`**
+# **📌 File Transfer Using `scp`**
 
 ### **1. Transfer a ZIP File**
 ```bash
@@ -265,7 +265,7 @@ scp -r python-periphery-master pico@172.32.0.70:/home/pico
 
 ---
 
-# **Install Python Library (Ubuntu)**
+# **📌 Install Python Library (Ubuntu)**
 ## Option 1
 ### **1. Navigate to the Transferred Directory**
 ```bash
@@ -282,7 +282,7 @@ pip install python-periphery
 ```
 ---
 
-# **Control GPIO Using `periphery` in Python**
+# **📌 Control GPIO Using `periphery` in Python**
 
 ### **1. Open Python 3**
 ```bash
