@@ -109,7 +109,13 @@ Run the following commands:
 
 ```bash
 wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/LuckFox/Script/install_mosquitto.sh
+```
+
+```bash
 chmod +x install_mosquitto.sh
+```
+
+```bash
 ./install_mosquitto.sh
 ```
 
