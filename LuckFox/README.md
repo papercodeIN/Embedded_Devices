@@ -61,7 +61,7 @@ sudo nmcli --ask dev wifi connect Capgemini_4G
 
 ---
 
-# **Wi-Fi Hotspot Setup Using `nmcli`**
+# **Wi-Fi Hotspot Setup Using `nmcli` (Ubuntu)**
 
 ### **1. Create a Wi-Fi Hotspot**
 ```bash
