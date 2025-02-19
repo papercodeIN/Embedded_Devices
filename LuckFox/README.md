@@ -164,7 +164,7 @@ This guide provides step-by-step instructions to install and run the **NanoMQ** 
 Run the following command to download the **NanoMQ** `.deb` package:  
 
 ```bash
-wget https://www.emqx.com/en/downloads/nanomq/v0.18.2/nanomq-0.23.2-linux-armhf.deb
+wget https://www.emqx.com/en/downloads/nanomq/v0.18.2/nanomq-0.18.2-linux-armhf.deb
 ```
 
 ## **2️⃣ Change File Ownership (Fix Permission Issue)**  
