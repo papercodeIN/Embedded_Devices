@@ -125,9 +125,20 @@ systemctl status mosquitto
 ```
 
 ## **3️⃣ Start/Stop/Restart Mosquitto**  
-- **Start:** `sudo systemctl start mosquitto`  
-- **Stop:** `sudo systemctl stop mosquitto`  
-- **Restart:** `sudo systemctl restart mosquitto`  
+- **Start:**
+```bash
+sudo systemctl start mosquitto
+```
+
+- **Stop:**
+```bash
+sudo systemctl stop mosquitto
+```
+
+- **Restart:**  
+```bash
+sudo systemctl restart mosquitto
+```
 
 ## **4️⃣ Test Mosquitto**  
 - **Subscribe:**  
