@@ -61,7 +61,7 @@ sudo nmcli --ask dev wifi connect Capgemini_4G
 
 ---
 
-# **Wi-Fi Hotspot Setup Using `nmcli` (Ubuntu)**
+# **Wi-Fi Hotspot Setup Using `nmcli`**
 
 ### **1. Create a Wi-Fi Hotspot**
 ```bash
@@ -99,6 +99,43 @@ cat /proc/cpuinfo
 ```sh
 uname -a
 ```
+
+---
+
+# **Install Mosquitto on Luckfox Pico Ultra W**
+
+## **1️⃣ Download & Run the Script**  
+Run the following commands:  
+
+```bash
+wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/LuckFox/Script/install_mosquitto.sh
+chmod +x install_mosquitto.sh
+./install_mosquitto.sh
+```
+
+## **2️⃣ Check Mosquitto Status**  
+```bash
+systemctl status mosquitto
+```
+
+## **3️⃣ Start/Stop/Restart Mosquitto**  
+- **Start:** `sudo systemctl start mosquitto`  
+- **Stop:** `sudo systemctl stop mosquitto`  
+- **Restart:** `sudo systemctl restart mosquitto`  
+
+## **4️⃣ Test Mosquitto**  
+- **Subscribe:**  
+  ```bash
+  mosquitto_sub -h localhost -t test/topic
+  ```
+- **Publish:**  
+  ```bash
+  mosquitto_pub -h localhost -t test/topic -m "Hello, MQTT!"
+  ```
+
+If working, you'll see **"Hello, MQTT!"** in the subscriber terminal. ✅  
+
+🎉 **Done! Mosquitto is installed and running!** 🚀
 
 ---
 
