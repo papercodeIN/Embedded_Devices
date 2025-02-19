@@ -108,7 +108,7 @@ uname -a
 Run the following commands:  
 
 ```bash
-wget https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/LuckFox/Script/install_mosquitto.sh
+wget --no-check-certificate https://raw.githubusercontent.com/papercodeIN/Embedded_Devices/refs/heads/main/LuckFox/Script/install_mosquitto.sh
 ```
 
 ```bash
