@@ -1,6 +1,6 @@
 # **Environment Details**
 
-## **📌 Luckfox Pico Mini B / Pico Pro / Pico Max / Ultra W**
+## **📌 Luckfox Pico Mini B / Pico Pro / Pico Max / Ultra W / WebBee**
 
 ### **Ubuntu Machine**
 - **Login:** pico  
