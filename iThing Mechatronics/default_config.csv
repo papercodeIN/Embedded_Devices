@@ -1,0 +1,70 @@
+#NVS,,,,
+key,type,encoding,value,
+device-conf,namespace,,,# Device Configuration
+app,data,string,iThingESPB764,
+id,data,string,iThing_dcda0c4bd834,
+industry,data,string,Food Machinery,
+customer,data,string,A Innovative,
+machineID,data,string,InnoPOP500_XX,
+ssid,data,string,iThingESP,# SSID of device when running in AP mode
+pass,data,string,esppassword,# Password of device when running in AP
+sta_ssid,data,string,NXON,# SSID of router where gateway will connect
+sta_pass,data,string,nXon@0987,# Password of router where gateway will connect
+server-conf,namespace,,,# Server Configuration
+apn,data,string,jionet,
+ip,data,string,server01.ithing.in,
+port,data,i32,8081,
+freq,data,i32,30,# Frequency (In seconds) at with device will send data to server
+ntp,data,string,0.in.pool.ntp.org,# NTP URL
+comm-conf,namespace,,,# Communication Configuration
+mode,data,i32,1,# 1. Mode A - Data send to server over WiFi  2. Mode B - Data send to server over GSM
+type,data,i32,4,"# [1 - CAN, 2 - ModbusRTU,  3 - WiFi, 4 - ModbusTCP, 5 - Ethernet, 6 - OPC]"
+modbus-conf,namespace,,,# Modbus Configuration
+status,data,i32,0,"# [0 -Disable, 1 - Enable]"
+capture,data,i32,1000,#In mSec
+baudrate,data,i32,19200,
+parity,data,u8,0,"# [0 - Disable, 1 - Max, 2 - Even, 3 - Odd]"
+databits,data,u8,3,"# [0 - 5bits, 1 - 6bits, 2 - 7bits, 3 - 8bits]"
+stopbits,data,u8,1,"# [1 - 1bit, 2 - 1.5bits, 3 - 2bits]"
+flowControl,data,u8,0,"# [0 - Disable, 1 - RTS, 2 - CTS, 3 - RTS_CTS]"
+slaveCount,data,u8,8,# Number of modubus slave (1 to 8)
+slaveID0,data,u16,3,
+addr0,data,string,R-40001-40400,
+slaveID1,data,u16,4,
+addr1,data,string,R-40026-40400,
+slaveID2,data,u16,5,
+addr2,data,string,R-40001-40130,
+slaveID3,data,u16,6,
+addr3,data,string,R-40001-40070,
+slaveID4,data,u16,7,
+addr4,data,string,R-40001-40066,
+slaveID5,data,u16,8,
+addr5,data,string,R-40001-40066,
+slaveID6,data,u16,1,
+addr6,data,string,R-40001-40050,
+slaveID7,data,u16,2,
+addr7,data,string,R-40001-40050,
+sdcard-conf,namespace,,,# SD Card Configuration
+store,data,u8,1,"# [0 -Disable, 1 - Enable]"
+fSize,data,u32,10,# Maximum size in Bytes per file
+canbus-conf,namespace,,,# CAN Bus Configuration
+status,data,i32,0,"# [0 - Disable, 1 - Enable]"
+capture,data,i32,1000,# in mSeconds
+baudrate,data,i32,500,
+nodeID,data,u16,1,# in hex [01h - 254h]
+heartBeatFreq,data,i32,100,# in mSeconds
+canIDs,data,u8,100,# [1 - 100]
+canR,data,string,R-101-15B,
+canS,data,string, ,
+modbus-tcp-conf,namespace,,,# Modbus TCP Configuration
+status,data,i32,1,"# [0 -Disable, 1 - Enable]"
+capture,data,i32,1000,#In mSec
+dhcp,data,u8,0,"# [0 - Static, 1 - DHCP]"
+staIP,data,string,192.168.0.155,# Static IP
+staGW,data,string,192.168.0.1,# Static Gateway
+staNM,data,string,255.255.255.0,# Static Netmask
+ip,data,string,192.168.0.153,# IP of Modbus TCP server
+port,data,i32,502,# PORT of Modbus TCP server
+slaveCount,data,u8,1,# Number of modubus slave (1 to 8)
+slaveID0,data,u16,3,# SLAVEID0 of Modbus TCP server
+addr0,data,string,S-41011-41012-41013-41014-41015-41016-41017-41018-41019-41020-41021-41022-41023-41024-41025-41026-41027-41028-41029-41030-41031-41032-41033-41034-41035-41036-41037-41038-41039-41040-41041-41042-41043-41044-41045-41046-41047,# ADDR0 of Modbus TCP server
