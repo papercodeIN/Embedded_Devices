@@ -1,3 +1,5 @@
+<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=papercodeIN.Embedded_Devices" height="20" />
+
 # Embedded_Devices
  
 ---
